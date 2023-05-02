@@ -1,0 +1,58 @@
+Design a class to represent bank account details as baseclass and bank process as the subclass. The bankdetails class contains the data members like the name of 
+the account holder, account number, type of account, balance, and the methods getdetails() and printdetails(). And then create bankprocess class which is the subclass 
+of bankdetails class which contains the amount as data member and deposit() and withdraw() two methods. Finally, create an object of the subclass and test it.
+
+class BankDetails {
+    protected String name;
+    protected long accNum;
+    protected String accType;
+    protected double balance;
+
+    public BankDetails(String name, long accNum, String accType, double balance) {
+        this.name = name;
+        this.accNum = accNum;
+        this.accType = accType;
+        this.balance = balance;
+    }
+
+    public void getDetails() {
+        System.out.println("Account holder name: " + name);
+        System.out.println("Account number: " + accNum);
+        System.out.println("Account type: " + accType);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class BankProcess extends BankDetails {
+    public BankProcess(String name, long accNum, String accType, double balance) {
+        super(name, accNum, accType, balance);
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("New Balance: " + balance);
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("New Balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankProcess account = new BankProcess("Akash", 123456789, "Savings", 50000);
+
+        account.getDetails();
+
+        double depositAmount = 2000;
+        double withdrawalAmount = 1000;
+
+        account.deposit(depositAmount);
+        account.withdraw(withdrawalAmount);
+    }
+}
