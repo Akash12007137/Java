@@ -1,0 +1,28 @@
+Write a program to check whether two strings are ANAGRAM or not. Strings will be anagram if they have same set of characters same number of times. 
+Your program should take the input of two strings of length greater than 2. If the length of the any string is less than equal 2 then display 
+the message “Invalid Input” without taking any more input
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s1 = scanner.nextLine();
+        String s2 = scanner.nextLine();
+        scanner.close();
+        if (s1.length() <= 2 || s2.length() <= 2) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        char[] c1 = s1.toCharArray();
+        char[] c2 = s2.toCharArray();
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+        if (Arrays.equals(c1, c2)) {
+            System.out.println("ANAGRAM");
+        } else {
+            System.out.println("NOT ANAGRAM");
+        }
+    }
+}
