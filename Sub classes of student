@@ -1,0 +1,50 @@
+Create the abstarct base class student with the data members as name; regestration number; and abstarct method marks. Then create two subclasses
+'CA' and 'SEMESTER' the two sub classes implement marks method. Create the object of both the sub classes to test the concept of abstract classes.
+
+abstract class Student {
+    String name;
+    int regNo;
+
+    public Student(String name, int regNo) {
+        this.name = name;
+        this.regNo = regNo;
+    }
+
+    public abstract void marks();
+}
+
+class CA extends Student {
+    int caMarks;
+
+    public CA(String name, int regNo, int caMarks) {
+        super(name, regNo);
+        this.caMarks = caMarks;
+    }
+
+    public void marks() {
+        System.out.println("CA marks for " + name + " (Reg No. " + regNo + "): " + caMarks);
+    }
+}
+
+class Semester extends Student {
+    int semMarks;
+
+    public Semester(String name, int regNo, int semMarks) {
+        super(name, regNo);
+        this.semMarks = semMarks;
+    }
+
+    public void marks() {
+        System.out.println("Semester marks for " + name + " (Reg No. " + regNo + "): " + semMarks);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CA student1 = new CA("Akash", 1234, 25);
+        Semester student2 = new Semester("Kumar", 5678, 75);
+
+        student1.marks();
+        student2.marks();
+    }
+}
