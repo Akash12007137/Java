@@ -1,0 +1,23 @@
+write a program to extract last name from the name and extract only denominator from a string containing both amount and currency symbol
+
+public class StringExtractor {
+    public static void main(String[] args) {
+        String fullName = "Akash Kumar";
+        String lastName = extractLastName(fullName);
+        System.out.println("Last Name: " + lastName);
+        
+        String amountWithCurrency = "1cr INR";
+        String denominator = extractDenominator(amountWithCurrency);
+        System.out.println("Denominator: " + denominator);
+    }
+    
+    public static String extractLastName(String fullName) {
+        String[] parts = fullName.split(" ");
+        return parts[parts.length - 1];
+    }
+    
+    public static String extractDenominator(String amountWithCurrency) {
+        String[] parts = amountWithCurrency.split(" ");
+        return parts[1];
+    }
+}
