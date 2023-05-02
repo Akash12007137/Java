@@ -1,0 +1,24 @@
+WAP to accpet one array of stings and integers.and count the number of stings and integers present in the array. 
+Example Input: First line Accept size of array second line accept all elements like Array = {"Raj", "77", "101", "99", "Jio"}
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        String[] arr = scanner.nextLine().split(" ");
+        int numIntegers = 0, numStrings = 0;
+        for (String s : arr) {
+            try {
+                Integer.parseInt(s);
+                numIntegers++;
+            } catch (NumberFormatException e) {
+                numStrings++;
+            }
+        }
+        System.out.println(numIntegers);
+        System.out.println(numStrings);
+    }
+}
