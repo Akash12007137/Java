@@ -1,0 +1,40 @@
+Create a base class as Conversion defined with data members amount and the abstract method as moneyconversion(). The create two subclasses, RupeeToDollar and 
+RupeeToEuro that implements the abstract method moneyconversion(). Finally, create the objects of the subclasses and test it.
+
+abstract class Conversion {
+    double amount;
+
+    abstract void moneyConversion();
+}
+
+class RupeeToDollar extends Conversion {
+    RupeeToDollar(double amount) {
+        this.amount = amount;
+    }
+
+    void moneyConversion() {
+        double dollarAmount = amount / 74.24; // 1 Dollar = 81.76 Rupees
+        System.out.println(amount + " Rupees = " + dollarAmount + " Dollars");
+    }
+}
+
+class RupeeToEuro extends Conversion {
+    RupeeToEuro(double amount) {
+        this.amount = amount;
+    }
+
+    void moneyConversion() {
+        double euroAmount = amount / 88.39; // 1 Euro = 89.84 Rupees
+        System.out.println(amount + " Rupees = " + euroAmount + " Euros");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        RupeeToDollar r2d = new RupeeToDollar(10000);
+        r2d.moneyConversion();
+
+        RupeeToEuro r2e = new RupeeToEuro(10000);
+        r2e.moneyConversion();
+    }
+}
