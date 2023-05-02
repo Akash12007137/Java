@@ -1,0 +1,42 @@
+Define a class department with data members Department name, HOD name, a constructor and a function print department details define another class
+staff member that extends the class department and contains data membbers staff name,staff qualification a constructor and a function print staff
+details. Create object for the class staff and print all the details
+
+class Department {
+    private String departmentName;
+    private String hodName;
+    
+    public Department(String departmentName, String hodName) {
+        this.departmentName = departmentName;
+        this.hodName = hodName;
+    }
+    
+    public void printDepartmentDetails() {
+        System.out.println("Department Name: " + departmentName);
+        System.out.println("HOD Name: " + hodName);
+    }
+}
+
+class StaffMember extends Department {
+    private String staffName;
+    private String staffQualification;
+    
+    public StaffMember(String departmentName, String hodName, String staffName, String staffQualification) {
+        super(departmentName, hodName);
+        this.staffName = staffName;
+        this.staffQualification = staffQualification;
+    }
+    
+    public void printStaffDetails() {
+        super.printDepartmentDetails();
+        System.out.println("Staff Name: " + staffName);
+        System.out.println("Staff Qualification: " + staffQualification);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        StaffMember staff = new StaffMember("Data Science", "Manoj", "Surbhi", "B.tech in Computer Science");
+        staff.printStaffDetails();
+    }
+}
